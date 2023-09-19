@@ -19,7 +19,7 @@ function Topbar() {
 
       <div className='flex items-center gap-1'>
         <div className='block md:hidden'>
-          <SignedOut>Sign out roi</SignedOut>
+          {/* <SignedOut>Sign out roi</SignedOut> */}
           {/* <SignedIn>
           <SignOutButton>
             <div className='flex cursor-pointer'>
