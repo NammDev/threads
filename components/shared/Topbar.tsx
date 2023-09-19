@@ -19,17 +19,13 @@ function Topbar() {
 
       <div className='flex items-center gap-1'>
         <div className='block md:hidden'>
-          {/* <SignedOut>Sign out roi</SignedOut> */}
-          {/* <SignedIn>
-          <SignOutButton>
-            <div className='flex cursor-pointer'>
-              <Image src='/assets/logout.svg' alt='logout' width={24} height={24} />
-            </div>
-          </SignOutButton>
-          </SignedIn> */}
-          {/* <SignedIn>
-            <div>You are signed in</div>
-          </SignedIn> */}
+          <SignedIn>
+            <SignOutButton>
+              <div className='flex cursor-pointer'>
+                <Image src='/assets/logout.svg' alt='logout' width={24} height={24} />
+              </div>
+            </SignOutButton>
+          </SignedIn>
         </div>
 
         <OrganizationSwitcher
