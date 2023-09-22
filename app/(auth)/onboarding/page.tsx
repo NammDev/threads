@@ -12,6 +12,7 @@ type userType = {
 }
 
 const Page = async () => {
+  // user get from clerk
   const user = await currentUser()
 
   // user get from database
@@ -40,7 +41,7 @@ const Page = async () => {
       </p>
 
       <section className='mt-9 bg-dark-2 p-10'>
-        <AccountProfile user={userData} btnTitle='Continue' />
+        <AccountProfile user={userData} btnTitle='Submit' />
       </section>
     </main>
   )
