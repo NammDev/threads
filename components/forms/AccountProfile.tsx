@@ -19,6 +19,8 @@ import { Button } from '../ui/button'
 import Image from 'next/image'
 import { Textarea } from '../ui/textarea'
 import { usePathname, useRouter } from 'next/navigation'
+import { isBase64Image } from '@/lib/utils'
+import { useUploadThing } from '@/lib/uploadthing'
 
 interface Props {
   user: {
@@ -33,6 +35,7 @@ interface Props {
 }
 
 const AccountProfile = ({ user, btnTitle }: Props) => {
+  const { startUpload } = useUploadThing('media')
   const router = useRouter()
   const pathname = usePathname()
   const [files, setFiles] = useState<File[]>([])
@@ -66,21 +69,17 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     }
   }
 
-  function onSubmit(values: z.infer<typeof UserValidation>) {
+  const onSubmit = async (values: z.infer<typeof UserValidation>) => {
     // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     const blob = values.profile_photo
 
-    console.log(values)
-
-    // const hasImageChanged = isBase64Image(blob)
-    // if (hasImageChanged) {
-    //   const imgRes = await startUpload(files)
-
-    //   if (imgRes && imgRes[0].fileUrl) {
-    //     values.profile_photo = imgRes[0].fileUrl
-    //   }
-    // }
+    const hasImageChanged = isBase64Image(blob)
+    if (hasImageChanged) {
+      const imgRes = await startUpload(files)
+      if (imgRes && imgRes[0].fileUrl) {
+        values.profile_photo = imgRes[0].fileUrl
+      }
+    }
 
     // await updateUser({
     //   name: values.name,
@@ -91,11 +90,11 @@ const AccountProfile = ({ user, btnTitle }: Props) => {
     //   image: values.profile_photo,
     // })
 
-    // if (pathname === '/profile/edit') {
-    //   router.back()
-    // } else {
-    //   router.push('/')
-    // }
+    if (pathname === '/profile/edit') {
+      router.back()
+    } else {
+      router.push('/')
+    }
   }
 
   return (
