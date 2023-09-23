@@ -1,7 +1,7 @@
 'use server'
 
-import Community from '../models/community.models'
-import User from '../models/user.models'
+import Community from '../models/community.model'
+import User from '../models/user.model'
 import { connectToDB } from '../mongoose'
 import { revalidatePath } from 'next/cache'
 

@@ -2,9 +2,9 @@
 
 import { revalidatePath } from 'next/cache'
 import { connectToDB } from '../mongoose'
-import Community from '../models/community.models'
-import User from '../models/user.models'
-import Thread from '../models/thread.models'
+import Community from '../models/community.model'
+import User from '../models/user.model'
+import Thread from '../models/thread.model'
 
 interface Params {
   text: string
