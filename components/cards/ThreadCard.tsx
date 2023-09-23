@@ -1,3 +1,4 @@
+import { formatDateString } from '@/lib/utils'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -139,10 +140,10 @@ function ThreadCard({
 
       {!isComment && community && (
         <Link href={`/communities/${community.id}`} className='flex items-center mt-5'>
-          {/* <p className='text-subtle-medium text-gray-1'>
+          <p className='text-subtle-medium text-gray-1'>
             {formatDateString(createdAt)}
             {community && ` - ${community.name} Community`}
-          </p> */}
+          </p>
 
           <Image
             src={community.image}

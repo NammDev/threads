@@ -4,17 +4,6 @@ import { fetchUser } from '@/lib/actions/user.actions'
 import { UserButton, currentUser } from '@clerk/nextjs'
 import { redirect } from 'next/navigation'
 
-type post = {
-  _id: string
-  currentUserId: string
-  parentId: string
-  text: string
-  author: { name: string; image: string; id: string }
-  community: { id: string; name: string; image: string }
-  createdAt: string
-  children: { author: { image: string } }[]
-}
-
 export default async function Home() {
   const user = await currentUser()
   if (!user) return null
