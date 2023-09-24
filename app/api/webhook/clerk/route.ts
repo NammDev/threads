@@ -67,6 +67,8 @@ export const POST = async (request: Request) => {
     // Show what evnt?.data sends from above resource
     const { id, name, slug, logo_url, image_url, created_by } = evnt?.data ?? {}
 
+    console.log('Vao day khong nhi?')
+
     try {
       // @ts-ignore
       await createCommunity(
@@ -147,6 +149,7 @@ export const POST = async (request: Request) => {
       // Show what evnt?.data sends from above resource
       const { id, logo_url, name, slug } = evnt?.data
       console.log('updated', evnt?.data)
+      console.log('vao day k?')
 
       // @ts-ignore
       await updateCommunityInfo(id, name, slug, logo_url)
