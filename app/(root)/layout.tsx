@@ -25,10 +25,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       }}
     >
       <html lang='en'>
-        <body className={inter.className}>
+        <body className={`${inter.className} bg-dark-1`}>
           <Topbar />
 
-          <main className='flex flex-row'>
+          <main className='flex flex-row bg-dark-1'>
             <LeftSidebar />
             <section className='main-container'>
               <div className='w-full max-w-4xl'>{children}</div>
